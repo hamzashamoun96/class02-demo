@@ -1,6 +1,6 @@
 'use strict';
 var username = prompt('HELLO Tell Us Your Name Please')
-alert("HELLO " + username.toUpperCase() + " Welcome To My WebPage If You Don't Mind I Want To Ask Some Questions");
+alert("HELLO " + username.toUpperCase() + " Welcome To My WebPage If You Don't Mind I Want To Ask Some (Yes Or No) Questions");
 document.write('<h2 id="welcome" > Welcome ' + username.toUpperCase() + ' To My Webpage</h2>');
 
 var car = prompt('Is BMW My Favorite Car?');
