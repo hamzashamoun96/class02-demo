@@ -1,0 +1,13 @@
+body{
+    background-image: url(https://www.publicdomainpictures.net/pictures/200000/velka/turquoise-curve-background.jpg);
+}
+#headline , #talk {text-align: center;}
+a{
+    text-decoration: none;
+    text-align: right;
+    color:darkred;
+}
+#welcome{
+    text-align: center;
+    color: darkblue;
+}
