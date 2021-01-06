@@ -1,4 +1,5 @@
 'use strict';
+
 var grade = 0;
 var username = prompt('HELLO Tell Us Your Name Please')
 alert("HELLO " + username.toUpperCase() + " Welcome To My WebPage If You Don't Mind I Want To Ask Some (Yes Or No) Questions");
@@ -58,9 +59,9 @@ while (i > 0) {
         i = i - 4;
         grade = grade + 1;
     } else if (parseInt(guess) < 13) {
-        guess = prompt('Try Again It Too Small You Got ' + (i-1) + ' Attempts Left')
+        guess = prompt('Try Again It Too Small You Got ' + i + ' Attempts Left')
     } else if (13 < parseInt(guess)) {
-        guess = prompt('Try Again Too High You Got ' + (i-1) + ' Attempts Left')
+        guess = prompt('Try Again Too High You Got ' + i + ' Attempts Left')
     }
 
     i--
@@ -70,7 +71,7 @@ alert('The Correct Anwser Was 13')
 
 var test = prompt('What Is My Favorite Car? Hint : There Are 5 Correct Answers And You Have 6 Attempts')
 var Car = ['BMW ', 'KIA ', 'MERCEDES ', 'FORD ', 'HUNDA '];
-var x = 5;
+var x = Car.length;
 while (x > 0) {
     if (test.toUpperCase() + ' ' === Car[0] || test.toUpperCase() + ' ' === Car[1] || test.toUpperCase + ' ' === Car[2] || test.toUpperCase + ' ' === Car[3] || test.toUpperCase + ' ' === Car[4]) {
         alert('That Was Correct');
