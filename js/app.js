@@ -51,16 +51,16 @@ if (game.toLowerCase() === 'yes' || game.toLowerCase() === 'y') {
 
 var exact = 13;
 var guess = prompt('Guess The Number Between 1 and 50 , You will Have 4 Attempts');
-var i = 3;
+var i = 4;
 while (i > 0) {
     if (parseInt(guess) === 13) {
         alert('That Was Correct');
-        i = i - 3;
+        i = i - 4;
         grade = grade + 1;
     } else if (parseInt(guess) < 13) {
-        guess = prompt('Try Again It Too Small You Got ' + i + ' Attempts Left')
+        guess = prompt('Try Again It Too Small You Got ' + (i-1) + ' Attempts Left')
     } else if (13 < parseInt(guess)) {
-        guess = prompt('Try Again Too High You Got ' + i + ' Attempts Left')
+        guess = prompt('Try Again Too High You Got ' + (i-1) + ' Attempts Left')
     }
 
     i--
@@ -68,7 +68,7 @@ while (i > 0) {
 alert('The Correct Anwser Was 13')
 
 
-var test = prompt('What Is My Favorite Car? Hint : There Are 5 Correct Answers')
+var test = prompt('What Is My Favorite Car? Hint : There Are 5 Correct Answers And You Have 6 Attempts')
 var Car = ['BMW ', 'KIA ', 'MERCEDES ', 'FORD ', 'HUNDA '];
 var x = 5;
 while (x > 0) {
