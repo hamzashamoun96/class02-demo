@@ -5,82 +5,84 @@ var username = prompt('HELLO Tell Us Your Name Please')
 alert("HELLO " + username.toUpperCase() + " Welcome To My WebPage If You Don't Mind I Want To Ask Some (Yes Or No) Questions");
 document.write('<h2 id="welcome" > Welcome ' + username.toUpperCase() + ' To My Webpage</h2>');
 
-var car = prompt('Is BMW My Favorite Car?');
-if (car.toLowerCase() === 'yes' || car.toLowerCase() === 'y') {
-    alert('That Is Right')
-    grade = grade + 1;
-} else if (car.toLowerCase() === 'no' || car.toLowerCase() === 'n') {
-    alert('Wrong Answer')
-}
-//console.log(car.toLowerCase())
+guess('Is BMW My Favorite Car?', 'That Is Right', 'Wrong Answer')
+guess('Is My Name Ahmed?','Wrong Answer', 'That Is Right')
+guess('Am I 24 Years Old?', 'That Is Right', 'Wrong Answer')
+guess('Am I Wear a Glasses?', 'That Is Right', 'Wrong Answer')
+guess('Did You Like This Game?', 'That Is Great', 'Too Bad')
+GuessingGame('Guess The Number Between 1 and 50 , You will Have 4 Attempts')
+GameArray('What Is My Favorite Car? Hint : There Are 5 Correct Answers And You Have 6 Attempts')
 
-var aname = prompt('Is My Name Ahmed?');
-if (aname.toLowerCase() === 'yes' || aname.toLowerCase() === 'y') {
-    alert('Wrong Answer')
-} else if (aname.toLowerCase() === 'no' || aname.toLowerCase() === 'n') {
-    alert('That Is Right')
-    grade = grade + 1;
-}
-//console.log(aname.toLowerCase())
 
-var age = prompt('Am I 24 Years Old?');
-if (age.toLowerCase() === 'yes' || age.toLowerCase() === 'y') {
-    alert('That Is Right')
-    grade = grade + 1;
-} else if (age.toLowerCase() === 'no' || age.toLowerCase() === 'n') {
-    alert('Wrong Answer')
-}
-//console.log(age.toLowerCase())
+function getuserinput(Message) {
+    return prompt(Message);
 
-var glass = prompt('Am I Wear a Glasses?');
-if (glass.toLowerCase() === 'yes' || glass.toLowerCase() === 'y') {
-    alert('That Is Right')
-    grade = grade + 1;
-} else if (glass.toLowerCase() === 'no' || glass.toLowerCase() === 'n') {
-    alert('Wrong Answer')
 }
-//console.log(glass.toLowerCase())
 
-var game = prompt('Did You Like This Game?');
-if (game.toLowerCase() === 'yes' || game.toLowerCase() === 'y') {
-    alert('That Is Great')
-    grade = grade + 1;
-} else if (game.toLowerCase() === 'no' || game.toLowerCase() === 'n') {
-    alert('Too Bad')
+function notify(getMessage) {
+
+    return alert(getMessage);
 }
-//console.log(game.toLowerCase())
 
-var exact = 13;
-var guess = prompt('Guess The Number Between 1 and 50 , You will Have 4 Attempts');
+
+
+function guess(Qustion, Message, Message2) {
+    var car = getuserinput(Qustion);
+    if (car.toLowerCase() === 'yes' || car.toLowerCase() === 'y') {
+        notify(Message);
+    }
+    else if (car.toLowerCase() === 'no' || car.toLowerCase() === 'n') {
+        notify(Message2);
+        grade++;
+    }
+}
+
+function GuessingGame(Message) {
+    var exact = 13;
+var guess = getuserinput(Message);
 var i = 4;
 while (i > 0) {
-    if (parseInt(guess) === 13) {
-        alert('That Was Correct');
-        i = i - 4;
+    if (parseInt(guess) === exact) {
+        notify('That Was Correct');
         grade = grade + 1;
-    } else if (parseInt(guess) < 13) {
-        guess = prompt('Try Again It Too Small You Got ' + i + ' Attempts Left')
-    } else if (13 < parseInt(guess)) {
-        guess = prompt('Try Again Too High You Got ' + i + ' Attempts Left')
+        break;
+        
+    
+    } 
+    else if (parseInt(guess) < exact) {
+        guess = getuserinput('Try Again It Too Small You Got ' + i + ' Attempts Left')
+    } else if (exact < parseInt(guess)) {
+        guess = getuserinput('Try Again Too High You Got ' + i + ' Attempts Left')
     }
 
     i--
 }
-alert('The Correct Anwser Was 13')
+
+if (parseInt(guess) !== exact) {
+    
+notify("The Correct Anwser Was" + exact);
+
+} }
 
 
-var test = prompt('What Is My Favorite Car? Hint : There Are 5 Correct Answers And You Have 6 Attempts')
+function GameArray(Message) {
+
+var test = getuserinput(Message)
 var Car = ['BMW ', 'KIA ', 'MERCEDES ', 'FORD ', 'HUNDA '];
 var x = Car.length;
 while (x > 0) {
     if (test.toUpperCase() + ' ' === Car[0] || test.toUpperCase() + ' ' === Car[1] || test.toUpperCase + ' ' === Car[2] || test.toUpperCase + ' ' === Car[3] || test.toUpperCase + ' ' === Car[4]) {
-        alert('That Was Correct');
-        x = x - 5
+        notify('That Was Correct');
         grade = grade + 1;
+        break;
+       
     } else if (test !== Car) {
-        test = prompt('That Was Wrong You Got ' + x + ' Attempt Left');
+        test = getuserinput('That Was Wrong You Got ' + x + ' Attempt Left');
     }
     x--
 }
-alert('Check The Answers Down')
-document.write('The Correct Answers Are : ' + Car + '  You Have Answered ' + grade + ' Questions Out Of 7 ')
+
+return notify('The Correct Answers Are : ' + Car + '  You Have Answered ' + grade + ' Questions Out Of 7 ');
+}
+
+
