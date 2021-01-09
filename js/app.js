@@ -30,10 +30,10 @@ function guess(Qustion, Message, Message2) {
     var car = getuserinput(Qustion);
     if (car.toLowerCase() === 'yes' || car.toLowerCase() === 'y') {
         notify(Message);
+        grade++;
     }
     else if (car.toLowerCase() === 'no' || car.toLowerCase() === 'n') {
         notify(Message2);
-        grade++;
     }
 }
 
